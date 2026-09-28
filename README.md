@@ -24,6 +24,13 @@ IoT code `1008` reports milli-°C (`21600` becomes `21.6 °C`). Humidity code
 reported as unavailable. The proposal's unrelated changes to camera controls
 and capability gating are **not** included in this fork.
 
+If you already run the upstream `cloudplus` integration, back up Home Assistant
+first and **replace its HACS repository source** with this fork; do not add a
+second config entry for the same account or keep two copies of the `cloudplus`
+directory. Download this fork's release in HACS and restart Home Assistant.
+HACS repository removal does not remove the integration's stored data, but do
+not delete the existing entry under **Settings → Devices & services**.
+
 ---
 
 ## Supported apps
