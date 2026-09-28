@@ -52,6 +52,8 @@ class IotSensorSpec:
     device_class: SensorDeviceClass
     unit: str
     icon: str | None = None
+    divisor: float = 1.0
+    sentinel: float | None = None
 
 
 IOT_SENSORS: tuple[IotSensorSpec, ...] = (
@@ -61,6 +63,8 @@ IOT_SENSORS: tuple[IotSensorSpec, ...] = (
         "Temperature",
         SensorDeviceClass.TEMPERATURE,
         UnitOfTemperature.CELSIUS,
+        divisor=1000.0,
+        sentinel=255.0,
     ),
     IotSensorSpec(
         "humidity_sensor",
@@ -68,6 +72,7 @@ IOT_SENSORS: tuple[IotSensorSpec, ...] = (
         "Humidity",
         SensorDeviceClass.HUMIDITY,
         PERCENTAGE,
+        sentinel=255.0,
     ),
     IotSensorSpec(
         "wifi_signal",

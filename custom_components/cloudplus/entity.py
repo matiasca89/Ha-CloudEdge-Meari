@@ -90,9 +90,13 @@ class CloudEdgeMeariIotNumericEntity(CloudEdgeMeariIotEntity):
         if value is None:
             return None
         try:
-            return float(value)
+            number = float(value)
         except (TypeError, ValueError):
             return None
+        number /= getattr(self._spec, "divisor", 1.0)
+        if number == getattr(self._spec, "sentinel", None):
+            return None
+        return number
 
     @property
     def available(self) -> bool:

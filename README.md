@@ -14,6 +14,16 @@ third-party bridge, no Frigate plugin, and no extra container are required.
 > ⚠️ **Unofficial.** Not affiliated with CloudEdge, Meari, or any reseller.
 > Use at your own risk; cloud APIs can change without notice.
 
+### This fork
+
+This fork retains the upstream [per-device OpenAPI authorization fix](https://github.com/ajeanney/Ha-CloudEdge-Meari/pull/49)
+(`deviceSignature` token for camera controls) and adds the Arenti temperature
+scaling fix from the still-open [telemetry proposal](https://github.com/ajeanney/Ha-CloudEdge-Meari/pull/51):
+IoT code `1008` reports milli-°C (`21600` becomes `21.6 °C`). Humidity code
+`1009` remains an unscaled percentage. The vendor's no-reading sentinels are
+reported as unavailable. The proposal's unrelated changes to camera controls
+and capability gating are **not** included in this fork.
+
 ---
 
 ## Supported apps

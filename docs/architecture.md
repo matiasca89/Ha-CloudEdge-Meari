@@ -56,7 +56,11 @@ derived from the camera's IoT model:
 
 IoT entities are gated on `coordinator.supports_iot(feature)` or
 `coordinator.has_iot_code(code)`, so cameras only show the toggles they
-actually implement.
+actually implement. Sensor code `1008` arrives from Arenti in milli-°C and
+is divided by 1000 before HA receives a Celsius value; code `1009` is already
+whole-percent humidity and is not divided. The vendor's missing-reading values
+(`255000` for temperature and `255` for humidity) make those sensors unavailable
+rather than publishing invalid measurements.
 
 ## Coordinator
 
